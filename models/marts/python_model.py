@@ -15,6 +15,6 @@ def model(dbt, session):
 
     my_sql_model_df["is_holiday"] = my_sql_model_df["DATE"].apply(is_holiday)
 
-    raise Exception(type(my_sql_model_df))
+
 
     return my_sql_model_df
