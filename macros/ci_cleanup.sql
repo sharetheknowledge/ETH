@@ -12,7 +12,7 @@
         from {{ database_to_clean }}.information_schema.schemata
         where
             catalog_name = '{{ database_to_clean | upper }}'
-            and schema_name ilike 'DBT_CLOUD_PR%'
+            and schema_name ilike 'PR%'
             and last_altered <= (current_date() - interval '{{ age_in_days }} days')
     {% endset %}
 
