@@ -36,7 +36,7 @@ jobs:
       - name: Cleanup old PR schemas
         run: |
           dbt run-operation pr_schema_cleanup \
-            --args "{database_to_clean: STAGE, age_in_days: 10}" \
+            --args "{database_to_clean: STAGE, age_in_days: 0}" \
             --target ci
         env:
           DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
