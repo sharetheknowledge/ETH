@@ -38,3 +38,7 @@ jobs:
           dbt run-operation pr_schema_cleanup \
             --args "{database_to_clean: STAGE, age_in_days: 10}" \
             --target ci
+        env:
+          DBT_PROFILES_YML: ${{ secrets.DBT_PROFILES_YML }}
+          DBT_PRIVATE_KEY: ${{ secrets.DBT_PRIVATE_KEY }}
+          DBT_CI_SCHEMA: dummy_schema
