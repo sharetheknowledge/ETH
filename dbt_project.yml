@@ -23,8 +23,8 @@ clean-targets:
 
 
 
-flags:
-  fail_fast: true
+# flags:
+#   fail_fast: true
 
 
 seeds:
