@@ -1,3 +1,18 @@
+# eth:
+#   target: ci
+#   outputs:
+#     ci:
+#       type: snowflake
+#       account: KSKTFGU-JW82895
+#       user: daniel
+#       role: ACCOUNTADMIN
+#       warehouse: compute_wh
+#       database: CI
+#       schema: ci_schema
+#       threads: 1
+#       private_key_path: /home/runner/.dbt/rsa_key.p8
+
+
 eth:
   target: ci
   outputs:
@@ -8,6 +23,6 @@ eth:
       role: ACCOUNTADMIN
       warehouse: compute_wh
       database: CI
-      schema: ci_schema
+      schema: env_var{{'CI_SCHEMA'}}
       threads: 1
       private_key_path: /home/runner/.dbt/rsa_key.p8
