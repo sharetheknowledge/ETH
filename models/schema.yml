@@ -52,3 +52,18 @@ models:
           # This means: use the 'columns' list from above, but exclude country_name
           - include: all
             exclude: [token_address, symbol]
+
+
+
+
+exposures:
+
+  - name: eth_activity_per_day
+    type: dashboard
+
+    depends_on:
+      - ref('stg_transactions_enriched')
+
+    owner:
+      name: Daniel Weigel
+      email: data@udemy.com
