@@ -1,0 +1,4 @@
+packages:
+  - local: packages/finance
+  - local: packages/growth
+sha1_hash: 6ae6c1a15c2b35261e92322873edf0d74740260d
