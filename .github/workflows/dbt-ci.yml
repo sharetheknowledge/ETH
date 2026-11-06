@@ -7,7 +7,7 @@ on:
 
 jobs:
   dbt-run:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     environment: DBT_ETH
 
     env:
@@ -47,6 +47,12 @@ jobs:
       - name: Run dbt debug
         run: dbt debug --target ci
 
+      - name: Test dbt parsing
+        run: |
+          rm -f target/partial_parse.msgpack
+          dbt parse --target ci --debug
+          dbt parse --target ci --debug
+
       - name: Create state manifest from master
         run: |
           git checkout master
@@ -64,7 +70,9 @@ jobs:
             --state ./state \
             --defer \
             --select "state:modified+,config.materialized:incremental,state:old"
+      
 
+      
       # ---- Then slim build ----
       - name: Slim build (modified + downstream)
         run: |
